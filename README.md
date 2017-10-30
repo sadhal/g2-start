@@ -9,3 +9,7 @@ En av bättre beskrivningar är en jämförelse mellan docker och en klassisk vi
 
 
 ## Introduktion till Openshift v3.6
+Openshift är en PaaS lösning (platform as a service) som är framtagen av Red Hat. Den bygger på open source ramverket Kubernetes som används för orkestrering av linux containrar i stor skala.  
+Openshift kan installeras på olika typer av infrastruktur: fysiska och virtuella servrar, privata, publika och hybrid molnlösningar.  
+Openshift kluster omfattar flera maskiner som samverkar som en enhet. Några maskiner agerar som mastrar och har som sin huvudsakliga uppgift att styra övriga maskiner. En bra regel är att använda några maskiner som infranoder där klustergemensamma förmågor exekverar. Arbetarnoder är maskiner där egenutvecklade och/eller tredje parts applikationer deployas.  
+Ett kluster kan, från version 3.6, bestå av upp till 2000 maskiner. Hur många pods (minsta driftsättningsbara enheten i kubernetes) kan deployas på en maskin beror på många faktorer där tillgång på RAM-minne och antal CPU-er är väldigt relevanta.
