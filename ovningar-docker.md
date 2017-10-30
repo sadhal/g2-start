@@ -23,7 +23,7 @@ docker pull centos/httpd-24-centos7
 ```bash
 docker run --rm --name myapache -p 9999:8080 docker.io/centos/httpd-24-centos7
 ```
-Växeln `--rm` talar om för docker engine att ta bort containerns data efter avslutad exekvering.  
+Växeln `--rm` talar om för docker engine att automatiskt ta bort containern och all dess data efter avslutad exekvering.  
 Växeln `--name` sätter ett namn på containern. Om växeln `--rm` inte hade använts skulle vi kunna starta upp instansen `myapache` på nytt med kommandot `docker start myapache`.  
 Växeln `-p` talar om hur vi vill mappa localhostens portar mot containerns portar.  
 Observera att detta kommando kommer låsa din terminal så du kan öppna ett nytt fönster och lista alla containers. Man kan starta containers som daemon vilket vi kommer testa lite senare.  Efter detta kan du besöka URLen [localhost:9999](localhost:9999) och verifiera att din appache instans är igång. Ett Red Hat Enterprise Linux Test Page borde visas.  
