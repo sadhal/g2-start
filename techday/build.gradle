@@ -7,11 +7,13 @@ buildscript {
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath('se.transmode.gradle:gradle-docker:1.2')
 	}
 }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'docker'
 apply plugin: 'org.springframework.boot'
 
 group = 'se.rsv.umea'
@@ -39,4 +41,22 @@ dependencyManagement {
 	imports {
 		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
 	}
+}
+
+docker {
+    registry = '172.30.1.1:5000'
+}
+
+
+task buildDocker(type: Docker, dependsOn: build) {
+	doFirst {
+		copy {
+			from jar
+			into stageDir
+		}
+	}
+	dockerfile = file('Dockerfile')
+
+    tag = "${docker.registry}/contacts-dev/my-cool-app"
+    push = true
 }
