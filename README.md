@@ -15,4 +15,4 @@ Openshift kluster omfattar flera maskiner som samverkar som en enhet. Några mas
 Ett kluster kan, från version 3.6, bestå av upp till 2000 maskiner. Hur många pods (minsta driftsättningsbara enheten i kubernetes) kan deployas på en maskin beror på många faktorer där tillgång på RAM-minne och antal CPU-er är väldigt relevanta.
 
 ## Övningar
-För att gå vidare med övningarna checka ut branchen `steg-1` och följ anvisningarna i filen `ovningar-docker.md`.
+För att gå vidare med övningarna checka ut branchen `steg-1` och följ anvisningar i filen `ovningar-docker.md`.
