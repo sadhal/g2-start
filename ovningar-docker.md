@@ -34,14 +34,21 @@ echo "Hej, världen..." > /var/www/html/index.html
 ```
 Växeln `-it` talar om för docker engine att vi önskar köra containern i interaktivt läge och att allokera pseudo-TTY.  
 Uppdatera din webbläsare och texten `Hej, världen...` borde visas istället för RHELs testsida. Du kan stoppa din container mha av kommandot `docker stop myapache`.
-### Bygga en docker image
-TODO -- använd någon bättre exempel applikation  
+### Bygga en egen docker image
+Skapa en fil som ska paketeras inuti en docker image:   
 ```bash
-git clone https://github.com/sadhal/mean-contactlist.git
-cd mean-contactlist
-docker build -t sadhal/mean-contactlist .
-docker images
-docker run --rm -d -p 8888:8888 sadhal/mean-contactlist
-docker ps
-docker stop “container id”
+echo "Hejsan från Umeå" > minfil.txt
 ```
+Skapa en fil som heter Dockerfile (ex: `gedit Dockerfile`) och har följande innehåll:
+```bash
+FROM centos
+COPY minfil.txt min-super-applikation.txt
+CMD cat min-super-applikation.txt
+```
+Bygg imagen från Dockerfile (obs! glöm inte punkten i build kommandot):  
+```bash
+docker build -t techday/heavy .
+docker images
+docker run --rm -it techday/heavy
+```
+Vi skulle i princip kunna paketera vad som helst i en docker image. Tänk på att det är EN process som ska startas i sista kommandot och det bör vara er applikation eller ett skript som startar den.
