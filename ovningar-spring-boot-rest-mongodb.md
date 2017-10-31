@@ -10,7 +10,7 @@ Vi kommer återanvända MongoDB podden som ni startade tidigare. Uppdatera appli
 ```bash
 spring.data.mongodb.uri=mongodb://sadhal:sadhal@172.30.179.204:27017/sampledb
 ```
-Där ni byter ut IPnumret 172.30.179.204 mot det IPnummer som er mongodb service har.  
+Där ni byter ut IPnumret 172.30.179.204 mot det IPnummer som er mongodb service har. Ni kan hitta IPnumret via Web Console eller mha kommandot `oc get svc`.    
 
 ### Kontrollera health-check endpointen från Actuator
 ```bash
